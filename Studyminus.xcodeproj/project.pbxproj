@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045BB1522561555700F2BBCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045BB1512561555700F2BBCF /* GoogleService-Info.plist */; };
 		04E0A6FB25610CF900B8AF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A6FA25610CF900B8AF55 /* AppDelegate.swift */; };
 		04E0A6FD25610CF900B8AF55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A6FC25610CF900B8AF55 /* SceneDelegate.swift */; };
 		04E0A6FF25610CF900B8AF55 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A6FE25610CF900B8AF55 /* SplashVC.swift */; };
@@ -17,9 +18,11 @@
 		04E0A71A256112B600B8AF55 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A719256112B600B8AF55 /* MenuVC.swift */; };
 		04E0A71D256112DC00B8AF55 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A71C256112DC00B8AF55 /* ProfileVC.swift */; };
 		04E0A7202561134600B8AF55 /* SubjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A71F2561134600B8AF55 /* SubjectListVC.swift */; };
+		0B3D462B8BC208CF60890560 /* Pods_Studyminus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07307EEA1DD44C423C56A361 /* Pods_Studyminus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045BB1512561555700F2BBCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04E0A6F725610CF800B8AF55 /* Studyminus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studyminus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E0A6FA25610CF900B8AF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04E0A6FC25610CF900B8AF55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		04E0A719256112B600B8AF55 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		04E0A71C256112DC00B8AF55 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		04E0A71F2561134600B8AF55 /* SubjectListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVC.swift; sourceTree = "<group>"; };
+		07307EEA1DD44C423C56A361 /* Pods_Studyminus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studyminus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21BB80E6A649809A628E36FE /* Pods-Studyminus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studyminus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Studyminus/Pods-Studyminus.debug.xcconfig"; sourceTree = "<group>"; };
+		93E69D98269A199FC055FF10 /* Pods-Studyminus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studyminus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studyminus/Pods-Studyminus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3D462B8BC208CF60890560 /* Pods_Studyminus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +57,8 @@
 			children = (
 				04E0A6F925610CF800B8AF55 /* Studyminus */,
 				04E0A6F825610CF800B8AF55 /* Products */,
+				A7058C90AC13D2607CD0E87C /* Pods */,
+				F1F256BC352A6E6690F41214 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +82,7 @@
 				04E0A70325610CFB00B8AF55 /* Assets.xcassets */,
 				04E0A70525610CFB00B8AF55 /* LaunchScreen.storyboard */,
 				04E0A70825610CFB00B8AF55 /* Info.plist */,
+				045BB1512561555700F2BBCF /* GoogleService-Info.plist */,
 			);
 			path = Studyminus;
 			sourceTree = "<group>";
@@ -103,6 +113,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A7058C90AC13D2607CD0E87C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21BB80E6A649809A628E36FE /* Pods-Studyminus.debug.xcconfig */,
+				93E69D98269A199FC055FF10 /* Pods-Studyminus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1F256BC352A6E6690F41214 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07307EEA1DD44C423C56A361 /* Pods_Studyminus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E0A70B25610CFB00B8AF55 /* Build configuration list for PBXNativeTarget "Studyminus" */;
 			buildPhases = (
+				6D3F6A384B61D1790AED9827 /* [CP] Check Pods Manifest.lock */,
 				04E0A6F325610CF800B8AF55 /* Sources */,
 				04E0A6F425610CF800B8AF55 /* Frameworks */,
 				04E0A6F525610CF800B8AF55 /* Resources */,
+				B0637858E1FE176F8C878845 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,12 +190,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E0A70725610CFB00B8AF55 /* LaunchScreen.storyboard in Resources */,
+				045BB1522561555700F2BBCF /* GoogleService-Info.plist in Resources */,
 				04E0A70425610CFB00B8AF55 /* Assets.xcassets in Resources */,
 				04E0A70225610CF900B8AF55 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D3F6A384B61D1790AED9827 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Studyminus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0637858E1FE176F8C878845 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Studyminus/Pods-Studyminus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Studyminus/Pods-Studyminus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Studyminus/Pods-Studyminus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04E0A6F325610CF800B8AF55 /* Sources */ = {
@@ -323,6 +391,7 @@
 		};
 		04E0A70C25610CFB00B8AF55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21BB80E6A649809A628E36FE /* Pods-Studyminus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,6 +411,7 @@
 		};
 		04E0A70D25610CFB00B8AF55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93E69D98269A199FC055FF10 /* Pods-Studyminus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
