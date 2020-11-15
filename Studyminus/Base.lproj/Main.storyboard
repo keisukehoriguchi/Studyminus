@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--SplashVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SplashVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="38" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="Bm2-h8-v7g">
             <objects>
-                <viewController id="S42-KE-wHL" sceneMemberID="viewController">
+                <viewController id="S42-KE-wHL" customClass="LoginVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TyA-GQ-hDN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,12 +36,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSI-rV-Mrb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="795"/>
+            <point key="canvasLocation" x="809" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Subject ListVC-->
         <scene sceneID="U9f-dk-gfI">
             <objects>
-                <viewController id="9AN-IZ-pR9" sceneMemberID="viewController">
+                <viewController id="9AN-IZ-pR9" customClass="SubjectListVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KX9-o8-L3K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,12 +51,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKl-ez-g1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="795"/>
+            <point key="canvasLocation" x="1612" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="qIh-uq-oc9">
             <objects>
-                <viewController id="OE7-51-Os2" sceneMemberID="viewController">
+                <viewController id="OE7-51-Os2" customClass="ProfileVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iu-3i-QBc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,12 +66,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dh-PU-F50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="80"/>
+            <point key="canvasLocation" x="38" y="795"/>
         </scene>
-        <!--View Controller-->
+        <!--MenuVC-->
         <scene sceneID="AGe-h1-0Q5">
             <objects>
-                <viewController id="XSk-pQ-7Xa" sceneMemberID="viewController">
+                <viewController id="XSk-pQ-7Xa" customClass="MenuVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdZ-gm-NA2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDs-3g-sOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="80"/>
+            <point key="canvasLocation" x="809" y="795"/>
         </scene>
     </scenes>
     <resources>
