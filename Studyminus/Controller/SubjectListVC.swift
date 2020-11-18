@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class SubjectListVC: UIViewController {
 
@@ -13,9 +14,9 @@ class SubjectListVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
-
     /*
     // MARK: - Navigation
 

@@ -145,11 +145,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="mAa-qi-cMa">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.dash" catalog="system" id="Rrf-JN-PTm">
-                                            <connections>
-                                                <segue destination="XSk-pQ-7Xa" kind="show" id="sa5-V5-lbN"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.dash" catalog="system" id="Rrf-JN-PTm"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -167,7 +163,7 @@
             <objects>
                 <viewController id="OE7-51-Os2" customClass="ProfileVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iu-3i-QBc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-US-tlR">
@@ -227,12 +223,12 @@
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="794.75262368815595"/>
         </scene>
-        <!--MenuVC-->
+        <!--View Controller-->
         <scene sceneID="AGe-h1-0Q5">
             <objects>
-                <viewController id="XSk-pQ-7Xa" customClass="MenuVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XSk-pQ-7Xa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdZ-gm-NA2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmc-NV-Hpo">
@@ -247,9 +243,6 @@
                                 <rect key="frame" x="0.0" y="46" width="375" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="マイページ"/>
-                                <connections>
-                                    <segue destination="OE7-51-Os2" kind="show" id="eU5-rD-CTN"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmJ-hQ-ULE">
                                 <rect key="frame" x="0.0" y="106" width="375" height="52"/>
