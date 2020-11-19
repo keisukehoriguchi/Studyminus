@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -48,7 +48,7 @@
         <!--LoginVC-->
         <scene sceneID="Bm2-h8-v7g">
             <objects>
-                <viewController id="S42-KE-wHL" customClass="LoginVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="S42-KE-wHL" customClass="LoginVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TyA-GQ-hDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="S42-KE-wHL" eventType="touchUpInside" id="XNm-ZA-aSo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzt-AF-Uys">
                                         <rect key="frame" x="82.5" y="294" width="150" height="30"/>
@@ -101,6 +104,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Login by AppleID"/>
+                                        <connections>
+                                            <action selector="loginbyAIDClicked:" destination="S42-KE-wHL" eventType="touchUpInside" id="iYA-3I-Beh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -130,7 +136,7 @@
         <!--Subject ListVC-->
         <scene sceneID="U9f-dk-gfI">
             <objects>
-                <viewController id="9AN-IZ-pR9" customClass="SubjectListVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubjectListVC" id="9AN-IZ-pR9" customClass="SubjectListVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KX9-o8-L3K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +151,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="mAa-qi-cMa">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.dash" catalog="system" id="Rrf-JN-PTm"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.dash" catalog="system" id="Rrf-JN-PTm">
+                                            <connections>
+                                                <action selector="menuClicked:" destination="9AN-IZ-pR9" id="yDG-ap-sfI"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -153,10 +163,11 @@
                         <viewLayoutGuide key="safeArea" id="PVB-Jq-qyM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Obo-DC-uVc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKl-ez-g1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610.4000000000001" y="79.610194902548727"/>
+            <point key="canvasLocation" x="1578" y="80"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="qIh-uq-oc9">
@@ -223,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="794.75262368815595"/>
         </scene>
-        <!--View Controller-->
+        <!--MenuVC-->
         <scene sceneID="AGe-h1-0Q5">
             <objects>
-                <viewController id="XSk-pQ-7Xa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" id="XSk-pQ-7Xa" customClass="MenuVC" customModule="Studyminus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdZ-gm-NA2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDs-3g-sOf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808.79999999999995" y="794.75262368815595"/>
+            <point key="canvasLocation" x="809" y="795"/>
         </scene>
     </scenes>
     <resources>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
