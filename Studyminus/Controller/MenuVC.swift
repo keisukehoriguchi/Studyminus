@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -29,4 +30,17 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.textLabel!.text = dataList[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC")
+            self.present(targetViewController, animated: true, completion: nil)
+        }
+        if indexPath.row == 1{
+            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
+            
+            self.present(targetViewController, animated: true, completion: nil)
+        }
+    }
+    
 }
