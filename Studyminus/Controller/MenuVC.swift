@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var dataList = ["マイページ", "ログアウト"]
@@ -20,6 +20,9 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         // Do any additional setup after loading the view.
     }
+}
+
+extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataList.count
@@ -33,14 +36,26 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC")
-            self.present(targetViewController, animated: true, completion: nil)
+            let targetVC = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC")
+            moveVC(targetVC: targetVC)
         }
         if indexPath.row == 1{
-            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
-            
-            self.present(targetViewController, animated: true, completion: nil)
+            logout()
+            let targetVC = self.storyboard!.instantiateViewController(withIdentifier: "LoginVC")
+            moveVC(targetVC: targetVC)
         }
     }
     
+    func logout(){
+        guard Auth.auth().currentUser != nil else { return }
+            do {try Auth.auth().signOut()
+            } catch {
+                debugPrint(error)
+            }
+        }
+    func moveVC(targetVC: UIViewController) {
+        targetVC.modalTransitionStyle = .crossDissolve
+        targetVC.modalPresentationStyle = .fullScreen
+        self.present(targetVC, animated: true, completion: nil)
+    }
 }
