@@ -18,8 +18,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var subjectCollection: UICollectionView!
     
     var currentUser = User()
-    var userEmail:String
-    var userId:String
+    var userEmail:String = ""
+    var userId:String = ""
     let db = Firestore.firestore()
 
     
@@ -36,7 +36,7 @@ class ProfileVC: UIViewController {
         currentUser = User(
             email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
         let updateData = User.modelToData(user: currentUser)
-        
+
         ref = db.collection("users").addDocument(data: updateData) { err in
             if let err = err {
                 print("Error adding document: \(err)")
