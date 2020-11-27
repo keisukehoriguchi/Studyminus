@@ -21,14 +21,16 @@ class ProfileVC: UIViewController {
     var userEmail:String = ""
     var userId:String = ""
     let db = Firestore.firestore()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard Auth.auth().currentUser != nil else {return}
-        userEmail = Auth.auth().currentUser!.email!
-        userId = Auth.auth().currentUser!.uid
-        // Do any additional setup after loading the view.
+        Auth.auth().addStateDidChangeListener { [self] (auth, user) in
+            if user != nil {
+                userEmail = user?.email ?? ""
+                userId = user?.uid ?? ""
+            }
+        }
     }
     
     @IBAction func saveClicked(_ sender: Any) {
@@ -36,7 +38,7 @@ class ProfileVC: UIViewController {
         currentUser = User(
             email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
         let updateData = User.modelToData(user: currentUser)
-
+        
         ref = db.collection("users").addDocument(data: updateData) { err in
             if let err = err {
                 print("Error adding document: \(err)")

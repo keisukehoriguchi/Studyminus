@@ -47,12 +47,16 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func logout(){
-        guard Auth.auth().currentUser != nil else { return }
-            do {try Auth.auth().signOut()
-            } catch {
-                debugPrint(error)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                do {try Auth.auth().signOut()
+                } catch {
+                    debugPrint(error)
+                }
             }
         }
+    }
+    
     func moveVC(targetVC: UIViewController) {
         targetVC.modalTransitionStyle = .crossDissolve
         targetVC.modalPresentationStyle = .fullScreen
