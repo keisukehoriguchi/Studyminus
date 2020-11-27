@@ -56,6 +56,6 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     func moveVC(targetVC: UIViewController) {
         targetVC.modalTransitionStyle = .crossDissolve
         targetVC.modalPresentationStyle = .fullScreen
-        self.present(targetVC, animated: true, completion: nil)
+        parent?.children[0].present(targetVC, animated: true, completion: nil)
     }
 }

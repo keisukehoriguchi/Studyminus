@@ -17,6 +17,10 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+              if user != nil {
+              }
+            }
     }
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
