@@ -29,22 +29,30 @@ class ProfileVC: UIViewController {
             if user != nil {
                 userEmail = user?.email ?? ""
                 userId = user?.uid ?? ""
+                
+                let docRef = db.collection("users").document(userId)
+                
+                docRef.getDocument { (document, error) in
+                    if let user = document.flatMap({
+                        $0.data().flatMap({ (data) in
+                            return User(data: data)
+                        })
+                    }) {
+                        print("User: \(user)")
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
             }
         }
     }
     
     @IBAction func saveClicked(_ sender: Any) {
-        var ref: DocumentReference? = nil
         currentUser = User(
             email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
         let updateData = User.modelToData(user: currentUser)
-        
-        ref = db.collection("users").addDocument(data: updateData) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
+        db.collection("users").document(currentUser.id).setData(updateData)
     }
 }
+
+

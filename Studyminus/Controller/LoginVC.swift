@@ -34,6 +34,7 @@ class LoginVC: UIViewController {
             guard let storyboard = self?.storyboard else {
                 return
             }
+            
             SideMenuController.preferences.basic.direction = .right
             SideMenuController.preferences.basic.menuWidth = 280
             let contentViewController = storyboard.instantiateViewController(withIdentifier: "SubjectListVC")
