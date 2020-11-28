@@ -21,10 +21,7 @@ class ProfileVC: UIViewController {
     var userEmail:String = ""
     var userId:String = ""
     let db = Firestore.firestore()
-    
     let storage = Storage.storage()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +31,6 @@ class ProfileVC: UIViewController {
         profileImg.isUserInteractionEnabled = true
         profileImg.clipsToBounds = true
         profileImg.addGestureRecognizer(tap)
-
         
         Auth.auth().addStateDidChangeListener { [self] (auth, user) in
             if user != nil {
@@ -53,15 +49,14 @@ class ProfileVC: UIViewController {
                         updateScreen(user: currentUser)
                     } else {
                         print("Document does not exist")
-                    }
-                }
-            }
-        }
+                    }}}}
+        
     }
     
     @IBAction func saveClicked(_ sender: Any) {
         currentUser = User(
             email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
+        uploadImageThenDocument()
         let updateData = User.modelToData(user: currentUser)
         db.collection("users").document(currentUser.id).setData(updateData)
     }
@@ -70,41 +65,47 @@ class ProfileVC: UIViewController {
         nameTxt.text = currentUser.username
         selfintroTxt.text = currentUser.selfIntro
     }
+}
+
+//画像処理型
+
+extension ProfileVC {
     
-    func updateImage() {
+    func uploadImageThenDocument() {
+        guard let image = profileImg.image else { return }
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
         
-        let storageRef = storage.reference()
-        // File located on disk
-        let localFile = URL(string: "path/to/image")!
-
-        // Create a reference to the file you want to upload
-        let profileImgRef = storageRef.child("images/\(currentUser.id).jpg")
-
-        // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = profileImgRef.putFile(from: localFile, metadata: nil) { metadata, error in
-          guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            return
-          }
-          // Metadata contains file metadata such as size, content-type.
-          let size = metadata.size
-          // You can also access to download URL after upload.
-            profileImgRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-              // Uh-oh, an error occurred!
-              return
+        let imageRef = Storage.storage().reference().child("/userImages/\(currentUser.id).jpg")
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            if let error = error {
+                print("Unable to upload image. detail: \(error)")
+                return
             }
-            self.currentUser.profileImg = downloadURL.absoluteString
-          }
+            
+            imageRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Unable to download url. detail: \(error)")
+                    return
+                }
+                
+                guard let url = url else { return }
+                self.currentUser.profileImg = url.absoluteString
+            }
         }
     }
+}
+
+//TapによるPicker表示周辺
+
+extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc func imgTapped() {
         launchImagePicker()
     }
-}
-
-extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func launchImagePicker() {
         let imagePicker = UIImagePickerController()
@@ -122,5 +123,30 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+//    func updateImage() {
+//        let storageRef = storage.reference()
+//        // File located on disk
+//        let localFile = URL(string: "path/to/image")!
+//
+//        // Create a reference to the file you want to upload
+//        let profileImgRef = storageRef.child("images/\(currentUser.id).jpg")
+//
+//        // Upload the file to the path "images/rivers.jpg"
+//        let uploadTask = profileImgRef.putFile(from: localFile, metadata: nil) { metadata, error in
+//            guard let metadata = metadata else {
+//                // Uh-oh, an error occurred!
+//                return
+//            }
+//            // Metadata contains file metadata such as size, content-type.
+//            let size = metadata.size
+//            // You can also access to download URL after upload.
+//            profileImgRef.downloadURL { (url, error) in
+//                guard let downloadURL = url else {
+//                    // Uh-oh, an error occurred!
+//                    return
+//                }
+//                self.currentUser.profileImg = downloadURL.absoluteString
+//            }}}
 }
 
