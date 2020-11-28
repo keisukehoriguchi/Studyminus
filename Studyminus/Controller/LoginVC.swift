@@ -14,6 +14,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -35,16 +37,27 @@ class LoginVC: UIViewController {
                 return
             }
             
-            SideMenuController.preferences.basic.direction = .right
-            SideMenuController.preferences.basic.menuWidth = 280
-            let contentViewController = storyboard.instantiateViewController(withIdentifier: "SubjectListVC")
-            let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuVC")
-            let viewController = SideMenuController(contentViewController: contentViewController,
-                                                    menuViewController: menuViewController)
-            viewController.modalTransitionStyle = .crossDissolve
-            viewController.modalPresentationStyle = .fullScreen
-            self?.present(viewController, animated: true, completion: nil)
+            guard let uid = authResult?.user.uid else { return }
             
+            let docRef = strongSelf.db.collection("users").document(uid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    SideMenuController.preferences.basic.direction = .right
+                    SideMenuController.preferences.basic.menuWidth = 280
+                    let contentViewController = storyboard.instantiateViewController(withIdentifier: "SubjectListVC")
+                    let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuVC")
+                    let viewController = SideMenuController(contentViewController: contentViewController,menuViewController: menuViewController)
+                    viewController.modalTransitionStyle = .crossDissolve
+                    viewController.modalPresentationStyle = .fullScreen
+                    self?.present(viewController, animated: true, completion: nil)
+                    
+                } else {
+                    let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
+                    profileVC.modalTransitionStyle = .crossDissolve
+                    profileVC.modalPresentationStyle = .fullScreen
+                    self?.present(profileVC, animated: true, completion: nil)
+                }
+            }
         }
     }
     
