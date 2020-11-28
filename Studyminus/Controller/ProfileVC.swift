@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class ProfileVC: UIViewController {
     
@@ -64,6 +65,9 @@ class ProfileVC: UIViewController {
     func updateScreen(user: User) {
         nameTxt.text = currentUser.username
         selfintroTxt.text = currentUser.selfIntro
+        if let url = URL(string: currentUser.profileImg) {
+            profileImg.kf.setImage(with: url)
+        }
     }
 }
 
@@ -85,13 +89,11 @@ extension ProfileVC {
                 print("Unable to upload image. detail: \(error)")
                 return
             }
-            
             imageRef.downloadURL { (url, error) in
                 if let error = error {
                     print("Unable to download url. detail: \(error)")
                     return
                 }
-                
                 guard let url = url else { return }
                 self.currentUser.profileImg = url.absoluteString
             }
