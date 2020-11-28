@@ -29,6 +29,11 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped))
+        tap.numberOfTouchesRequired = 1
+        profileImg.isUserInteractionEnabled = true
+        profileImg.clipsToBounds = true
+        profileImg.addGestureRecognizer(tap)
 
         
         Auth.auth().addStateDidChangeListener { [self] (auth, user) in
@@ -93,6 +98,29 @@ class ProfileVC: UIViewController {
           }
         }
     }
+    
+    @objc func imgTapped() {
+        launchImagePicker()
+    }
 }
 
+extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func launchImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        profileImg.contentMode = .scaleAspectFill
+        profileImg.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
 
