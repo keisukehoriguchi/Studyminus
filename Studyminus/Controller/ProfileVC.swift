@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import Kingfisher
 
 class ProfileVC: UIViewController {
@@ -18,11 +17,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var selfintroTxt: UITextView!
     @IBOutlet weak var subjectCollection: UICollectionView!
     
-    var currentUser = User()
     var userEmail:String = ""
     var userId:String = ""
-    let db = Firestore.firestore()
-    let storage = Storage.storage()
     var updateData = [String: Any]()
     
     override func viewDidLoad() {
@@ -34,71 +30,16 @@ class ProfileVC: UIViewController {
         profileImg.clipsToBounds = true
         profileImg.addGestureRecognizer(tap)
         
-        Auth.auth().addStateDidChangeListener { [self] (auth, user) in
-            if user != nil {
-                userEmail = user?.email ?? ""
-                userId = user?.uid ?? ""
-                
-                let docRef = db.collection("users").document(userId)
-                
-                docRef.getDocument { (document, error) in
-                    if let user = document.flatMap({
-                        $0.data().flatMap({ (data) in
-                            return User(data: data)
-                        })
-                    }) {
-                        currentUser = user
-                        updateScreen(user: currentUser)
-                        
-                    } else {
-                        print("Document does not exist")
-                    }}}}
-        
     }
     
     @IBAction func saveClicked(_ sender: Any) {
-        currentUser = User(
-            email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
-        uploadImageThenDocument()
-    }
-    
-    func updateScreen(user: User) {
-        nameTxt.text = currentUser.username
-        selfintroTxt.text = currentUser.selfIntro
-        if let url = URL(string: currentUser.profileImg) {
-            profileImg.kf.setImage(with: url)
-        }
-    }
-}
-
-//画像処理型
-
-extension ProfileVC {
-    
-    func uploadImageThenDocument() {
+        #warning("入力項目の内容がちゃんと入っているかどうか等のバリデーションが必要。場合によってはエラーアラート表示")
         guard let image = profileImg.image else { return }
-        guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
-        
-        let imageRef = Storage.storage().reference().child("/userImages/\(currentUser.id).jpg")
-        
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        
-        imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
-            if let error = error {
-                print("Unable to upload image. detail: \(error)")
-                return
-            }
-            imageRef.downloadURL { (url, error) in
-                if let error = error {
-                    print("Unable to download url. detail: \(error)")
-                    return
-                }
-                guard let url = url else { return }
-                //↓これが行われるのが遅過ぎて、適切なURLを保存できない。あーだからステータスのモニタリングの話がFire baseのサイトで出てたのかも。
-                self.currentUser.profileImg = url.absoluteString
-                self.updateData = User.modelToData(user: self.currentUser)
-                self.db.collection("users").document(self.currentUser.id).setData(self.updateData)
+        let user = User(
+            email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
+        UserRepository.shared.create(user: user, image: image) { isSucess in
+            if !isSucess {
+                #warning("エラー処理")
             }
         }
     }
