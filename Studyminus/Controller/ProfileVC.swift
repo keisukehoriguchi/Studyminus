@@ -23,6 +23,7 @@ class ProfileVC: UIViewController {
     var userId:String = ""
     let db = Firestore.firestore()
     let storage = Storage.storage()
+    var updateData = [String: Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class ProfileVC: UIViewController {
                     }) {
                         currentUser = user
                         updateScreen(user: currentUser)
+                        
                     } else {
                         print("Document does not exist")
                     }}}}
@@ -58,8 +60,6 @@ class ProfileVC: UIViewController {
         currentUser = User(
             email: userEmail, id: userId, username: nameTxt.text, profileImg: "", selfIntro: selfintroTxt.text)
         uploadImageThenDocument()
-        let updateData = User.modelToData(user: currentUser)
-        db.collection("users").document(currentUser.id).setData(updateData)
     }
     
     func updateScreen(user: User) {
@@ -95,7 +95,10 @@ extension ProfileVC {
                     return
                 }
                 guard let url = url else { return }
+                //↓これが行われるのが遅過ぎて、適切なURLを保存できない。あーだからステータスのモニタリングの話がFire baseのサイトで出てたのかも。
                 self.currentUser.profileImg = url.absoluteString
+                self.updateData = User.modelToData(user: self.currentUser)
+                self.db.collection("users").document(self.currentUser.id).setData(self.updateData)
             }
         }
     }
