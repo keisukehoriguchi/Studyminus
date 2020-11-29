@@ -36,12 +36,8 @@ class LoginVC: UIViewController {
             guard let storyboard = self?.storyboard else {
                 return
             }
-            
-            guard let uid = authResult?.user.uid else { return }
-            
-            let docRef = strongSelf.db.collection("users").document(uid)
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
+            UserRepository.shared.get { userInfo in
+                if let userInfo = userInfo {
                     SideMenuController.preferences.basic.direction = .right
                     SideMenuController.preferences.basic.menuWidth = 280
                     let contentViewController = storyboard.instantiateViewController(withIdentifier: "SubjectListVC")
@@ -50,7 +46,6 @@ class LoginVC: UIViewController {
                     viewController.modalTransitionStyle = .crossDissolve
                     viewController.modalPresentationStyle = .fullScreen
                     self?.present(viewController, animated: true, completion: nil)
-                    
                 } else {
                     let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
                     profileVC.modalTransitionStyle = .crossDissolve

@@ -16,7 +16,6 @@ class AddTaskVC: UIViewController {
     @IBOutlet weak var taskImg: UIImageView!
     var updateSubject = Subject()
     var updateData = [String: Any]()
-    var currentUser = User()
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -27,20 +26,6 @@ class AddTaskVC: UIViewController {
         taskImg.isUserInteractionEnabled = true
         taskImg.clipsToBounds = true
         taskImg.addGestureRecognizer(tap)
-        
-        Auth.auth().addStateDidChangeListener { [self] (auth, user) in
-            if user != nil {
-                let docRef = db.collection("users").document(user!.uid)
-                docRef.getDocument { (document, error) in
-                    if let user = document.flatMap({
-                        $0.data().flatMap({ (data) in
-                            return User(data: data)
-                        })
-                    }) {
-                        currentUser = user
-                    } else {
-                        print("Document does not exist")
-                    }}}}
     }
     
     @IBAction func registerBtn(_ sender: Any) {
@@ -71,7 +56,7 @@ extension AddTaskVC {
                 }
                 guard let url = url else { return }
                 guard let name = self.taskNameTxt.text, let detail = self.taskDetailTxt.text else { return }
-                self.updateSubject = Subject(name: name, detail: detail, subjectImg: "", userid: self.currentUser.id)
+                self.updateSubject = Subject(name: name, detail: detail, subjectImg: "", userid: UserRepository.shared.currentUser.uid)
                 self.updateSubject.subjectImg = url.absoluteString
                 self.updateData = Subject.modelToData(subject: self.updateSubject)
                 self.db.collection("Posts").addDocument(data: self.updateData)
