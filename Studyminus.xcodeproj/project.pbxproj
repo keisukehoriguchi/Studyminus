@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044BEAF62574E4D100DB23D9 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044BEAF52574E4D100DB23D9 /* SubjectTableViewCell.swift */; };
 		045BB1522561555700F2BBCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045BB1512561555700F2BBCF /* GoogleService-Info.plist */; };
 		045F466E256681E70076C62B /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F466D256681E70076C62B /* Setting.swift */; };
 		0473CAF225739FA700CD726E /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473CAF125739FA700CD726E /* AddTaskVC.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		044BEAF52574E4D100DB23D9 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 		045BB1512561555700F2BBCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		045F466D256681E70076C62B /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		0473CAF125739FA700CD726E /* AddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		04E0A70F25610D0400B8AF55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				044BEAF52574E4D100DB23D9 /* SubjectTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				0479DCAB2573BDC10016056C /* Subject.swift in Sources */,
 				04E0A6FF25610CF900B8AF55 /* SplashVC.swift in Sources */,
 				04E0A7202561134600B8AF55 /* SubjectListVC.swift in Sources */,
+				044BEAF62574E4D100DB23D9 /* SubjectTableViewCell.swift in Sources */,
 				04E0A6FB25610CF900B8AF55 /* AppDelegate.swift in Sources */,
 				04E0A7172561126800B8AF55 /* LoginVC.swift in Sources */,
 				048CD9662567D60C00B83FFA /* User.swift in Sources */,
