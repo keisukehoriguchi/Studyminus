@@ -24,6 +24,7 @@
 		04E0A71D256112DC00B8AF55 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A71C256112DC00B8AF55 /* ProfileVC.swift */; };
 		04E0A7202561134600B8AF55 /* SubjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0A71F2561134600B8AF55 /* SubjectListVC.swift */; };
 		0B3D462B8BC208CF60890560 /* Pods_Studyminus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07307EEA1DD44C423C56A361 /* Pods_Studyminus.framework */; };
+		294F8BC8257528EB00E98ED2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F8BC7257528EB00E98ED2 /* UserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		04E0A71F2561134600B8AF55 /* SubjectListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListVC.swift; sourceTree = "<group>"; };
 		07307EEA1DD44C423C56A361 /* Pods_Studyminus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studyminus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BB80E6A649809A628E36FE /* Pods-Studyminus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studyminus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Studyminus/Pods-Studyminus.debug.xcconfig"; sourceTree = "<group>"; };
+		294F8BC7257528EB00E98ED2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		93E69D98269A199FC055FF10 /* Pods-Studyminus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studyminus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studyminus/Pods-Studyminus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				045F466D256681E70076C62B /* Setting.swift */,
 				048CD9652567D60C00B83FFA /* User.swift */,
 				0479DCAA2573BDC10016056C /* Subject.swift */,
+				294F8BC7257528EB00E98ED2 /* UserRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294F8BC8257528EB00E98ED2 /* UserRepository.swift in Sources */,
 				04E0A71D256112DC00B8AF55 /* ProfileVC.swift in Sources */,
 				0479DCAB2573BDC10016056C /* Subject.swift in Sources */,
 				04E0A6FF25610CF900B8AF55 /* SplashVC.swift in Sources */,
